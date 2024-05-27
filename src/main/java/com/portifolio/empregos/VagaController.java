@@ -12,6 +12,11 @@ public class VagaController {
 	private static final String template = "título: %s";
 	private final AtomicLong contador = new AtomicLong();
 	
+	@GetMapping("/")
+	public String index() {
+		return "Vamos conseguir um emprego?!";
+	}
+	
 	@GetMapping("/vaga")
 	public Vaga vaga(
 		@RequestParam(value="titulo", defaultValue="título inexistente")
