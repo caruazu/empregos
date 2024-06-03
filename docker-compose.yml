@@ -1,7 +1,13 @@
 services:
-  web-service:
+  spring:
     build:
-      context: ./
+      context: ./empregos-backend
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+  angular:
+    build:
+      context: ./empregos-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
