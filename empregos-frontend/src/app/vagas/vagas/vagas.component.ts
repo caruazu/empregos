@@ -1,5 +1,6 @@
+import { VagasService } from './../services/vagas.service';
 import { Component } from '@angular/core';
-import { Vagas } from '../model/vagas';
+import { Vaga } from '../model/vagas';
 
 @Component({
   selector: 'app-vagas',
@@ -7,18 +8,12 @@ import { Vagas } from '../model/vagas';
   styleUrl: './vagas.component.scss'
 })
 export class VagasComponent {
-  vagas: Vagas[];
+  vagas: Vaga[] = [];
   displayedColumns = ['titulo','tipo','descricao'];
 
-  constructor(){
-    this.vagas = [
-      {
-        _id:'1',
-        titulo:'Pessoa desenvolvedora de Angular',
-        tipo:'Desenvolvimento',
-        descricao: 'Nós da startup maneira precisamos de um desenvolvedor front end.'
-      }
-    ];
+  constructor(private VagasService: VagasService){
+    this.vagas = this.VagasService.list();
+
   }
 
 }

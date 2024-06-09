@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { VagasRoutingModule } from './vagas-routing.module';
 import { VagasComponent } from './vagas/vagas.component';
-import { MatTableModule } from '@angular/material/table';
 
+import { AppMaterialModule } from '../shared/app-material/app-material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { MatTableModule } from '@angular/material/table';
   imports: [
     CommonModule,
     VagasRoutingModule,
-    MatTableModule
+    AppMaterialModule
   ]
 })
 export class VagasModule { }

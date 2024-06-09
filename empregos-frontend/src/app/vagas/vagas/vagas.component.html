@@ -1,5 +1,8 @@
-<table mat-table [dataSource]="vagas" class="mat-elevation-z8">
+<mat-card>
 
+  <mat-toolbar color="secondary">Minhas Vagas</mat-toolbar>
+
+<table mat-table [dataSource]="vagas" class="mat-elevation-z8">
   <ng-container matColumnDef="titulo">
     <th mat-header-cell *matHeaderCellDef> Vaga </th>
     <td mat-cell *matCellDef="let v"> {{v.titulo}} </td>
@@ -19,3 +22,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+</mat-card>
