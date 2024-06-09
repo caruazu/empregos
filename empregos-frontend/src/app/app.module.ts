@@ -15,10 +15,10 @@ import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@an
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [AppComponent]
 })
