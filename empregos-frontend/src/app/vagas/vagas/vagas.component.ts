@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vagas',
@@ -17,7 +18,9 @@ export class VagasComponent {
 
   constructor(
       private VagasService: VagasService,
-      public dialog: MatDialog
+      public dialog: MatDialog,
+      private router: Router,
+      private route: ActivatedRoute
     )
   {
     this.vagas$ = this.VagasService
@@ -34,5 +37,9 @@ export class VagasComponent {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
     });
+  }
+
+  onAdd(){
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 }

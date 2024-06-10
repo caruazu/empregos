@@ -1,25 +1,26 @@
+
+
 <mat-card>
 
 <mat-toolbar color="secondary">Minhas Vagas</mat-toolbar>
 
 <div *ngIf="vagas$ | async as vagas; else loading">
 
-  <table mat-table [dataSource]="vagas" class="mat-elevation-z8">
-    <ng-container matColumnDef="titulo">
-      <th mat-header-cell *matHeaderCellDef> Vaga </th>
+<table mat-table [dataSource]="vagas" class="mat-elevation-z8">
+  <ng-container matColumnDef="titulo">
+    <th mat-header-cell *matHeaderCellDef> Vaga </th>
     <td mat-cell *matCellDef="let v"> {{v.titulo}} </td>
   </ng-container>
 
   <ng-container matColumnDef="tipo">
     <th mat-header-cell *matHeaderCellDef> Tipo </th>
-  <td mat-cell *matCellDef="let v">
-    <mat-icon aria-hidden="false" aria-label="Tipo de vaga">{{v.tipo | tipo}}</mat-icon>
-  </td>
+    <td mat-cell *matCellDef="let v">
+      <mat-icon aria-hidden="false" aria-label="Tipo de vaga">{{v.tipo | tipo}}</mat-icon>
+    </td>
+  </ng-container>
 
-</ng-container>
-
-<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
 </div>
@@ -29,3 +30,10 @@
 </ng-template>
 
 </mat-card>
+
+<div class="fab-container">
+  <button mat-fab color="primary" aria-label="Adicione uma vaga" (click)="onAdd()" >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+

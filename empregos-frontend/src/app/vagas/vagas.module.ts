@@ -6,10 +6,12 @@ import { VagasComponent } from './vagas/vagas.component';
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
+import { VagasFormComponent } from './vagas-form/vagas-form.component';
 
 @NgModule({
   declarations: [
-    VagasComponent
+    VagasComponent,
+    VagasFormComponent
   ],
   imports: [
     CommonModule,

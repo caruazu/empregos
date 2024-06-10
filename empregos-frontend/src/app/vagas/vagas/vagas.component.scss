@@ -1,3 +1,12 @@
 table {
   width: 100%;
 }
+.fab-container {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}
+mat-card {
+  max-width: 800px;
+  margin: 2em auto;
+}
