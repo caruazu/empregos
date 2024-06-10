@@ -7,6 +7,7 @@ import { VagasComponent } from './vagas/vagas.component';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { VagasFormComponent } from './vagas-form/vagas-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { VagasFormComponent } from './vagas-form/vagas-form.component';
     CommonModule,
     VagasRoutingModule,
     AppMaterialModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class VagasModule { }
