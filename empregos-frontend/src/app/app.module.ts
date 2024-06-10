@@ -9,7 +9,7 @@ import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@an
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { VagasRoutingModule } from './vagas-routing.module';
 import { VagasComponent } from './vagas/vagas.component';
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
   imports: [
     CommonModule,
     VagasRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    SharedModule
   ]
 })
 export class VagasModule { }

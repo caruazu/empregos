@@ -14,7 +14,7 @@ export class VagasService {
 
   list() {
     return this.httpClient.get<Vaga[]>(this.API_URL).pipe(
-      tap(vagas => console.log(vagas))
+      first()
     );
   }
 }
