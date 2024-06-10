@@ -1,5 +1,7 @@
 package com.portifolio.empregos.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Vaga {
 	@Id
+	@JsonProperty("_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	

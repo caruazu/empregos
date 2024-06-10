@@ -8,7 +8,8 @@ import { delay, first, map, tap } from 'rxjs/operators';
 })
 export class VagasService {
 
-  private readonly API_URL = '/assets/vagas.json';
+
+  private readonly API_URL = 'api/vaga';
 
   constructor(private httpClient: HttpClient) { }
 

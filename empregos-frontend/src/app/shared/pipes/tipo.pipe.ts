@@ -7,7 +7,7 @@ export class TipoPipe implements PipeTransform {
 
   transform(value: string): string {
     switch(value) {
-      case 'desenvolvedor': return 'code';
+      case 'Desenvolvimento': return 'code';
       case 'outros': return 'computer';
     }
     return 'computer';
