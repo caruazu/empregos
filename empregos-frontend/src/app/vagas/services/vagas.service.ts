@@ -8,7 +8,6 @@ import { delay, first, map, tap } from 'rxjs/operators';
 })
 export class VagasService {
 
-
   private readonly API_URL = 'api/vaga';
 
   constructor(private httpClient: HttpClient) { }
@@ -20,6 +19,20 @@ export class VagasService {
   }
 
   salvar(vagasForm: Partial<Vaga>){
+    if (vagasForm._id) {
+      return this.update(vagasForm);
+    } else {
+      return this.create(vagasForm);
+    }
+  }
+
+  loadByID(_id: string) {
+    return this.httpClient.get<Vaga>(`${this.API_URL}/${_id}`);
+  }
+  private create(vagasForm: Partial<Vaga>){
     return this.httpClient.post<Vaga>(this.API_URL, vagasForm);
+  }
+  private update(vagasForm: Partial<Vaga>){
+    return this.httpClient.put<Vaga>(`${this.API_URL}/${vagasForm._id}`, vagasForm);
   }
 }

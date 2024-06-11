@@ -17,19 +17,19 @@
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row
-    *matRowDef="let row; columns: displayedColumns;"
-    (click)="clickedRows.add(row)"
+    *matRowDef="let vagaSelecionada; columns: displayedColumns;"
+    (click)="onEdit(vagaSelecionada)"
   />
 
 </mat-table>
 
-<mat-card-actions align="end">
+<div class="fab-container">
   <button
-    mat-flat-button
+    mat-fab
     color="primary"
-    class="btn-space"
+    aria-label="Adicione uma vaga"
     (click)="onAdd()"
   >
-    CRIAR
+    <mat-icon>add</mat-icon>
   </button>
-</mat-card-actions>
+</div>

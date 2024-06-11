@@ -6,6 +6,7 @@
     *ngIf="vagas$ | async as vagas; else loading"
     [vagas]="vagas"
     (add)="onAdd()"
+    (edit)="onEdit($event)"
   />
 
   <ng-template #loading >

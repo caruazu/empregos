@@ -41,7 +41,17 @@ export class VagasComponent {
   }
 
   onAdd() {
-    this.router.navigate(['new'], { relativeTo: this.route });
+    this.router.navigate(
+      ['new'],
+      { relativeTo: this.route }
+    );
+  }
+
+  onEdit(vagaSelecionada: Vaga){
+    this.router.navigate(
+      ['edit',vagaSelecionada._id],
+      { relativeTo: this.route }
+    )
   }
 
 }

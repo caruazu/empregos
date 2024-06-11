@@ -10,12 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class VagasListComponent {
 
   @Input() vagas: Vaga[] = []
-  @Output() add = new EventEmitter(false);
 
-  clickedRows = new Set<Vaga>();
+  @Output() add = new EventEmitter(false);
+  @Output() edit = new EventEmitter(false);
+
   readonly displayedColumns = ['titulo','tipo'];
 
   onAdd(){
     this.add.emit(true);
+  }
+
+  onEdit(vagaSelecionada: Vaga){
+    this.edit.emit(vagaSelecionada);
   }
 }

@@ -3,7 +3,10 @@ import { NonNullableFormBuilder } from '@angular/forms';
 import { VagasService } from '../../services/vagas.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { map, switchMap } from 'rxjs';
+import { Vaga } from '../../model/vagas';
 
 @Component({
   selector: 'app-vagas-form',
@@ -13,16 +16,33 @@ import { Router } from '@angular/router';
 export class VagasFormComponent {
 
   form = this.formBuilder.group({
+    _id: [''],
     titulo: [''],
-    tipo: ['']
+    tipo: [''],
+    descricao: [''],
   });
 
   constructor(
-    private router: Router,
-    private formBuilder: NonNullableFormBuilder,
     public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute,
+    private formBuilder: NonNullableFormBuilder,
     private vagasService: VagasService
   ){}
+
+  ngOnInit(){
+    const vagaSelecionada: Vaga = this.route.snapshot.data['vaga'];
+
+
+    this.form.setValue({
+      _id: vagaSelecionada._id,
+      titulo: vagaSelecionada.titulo,
+      tipo: vagaSelecionada.tipo,
+      descricao: vagaSelecionada.descricao
+      });
+
+    console.log(vagaSelecionada)
+}
 
   onSalvar() {
     this.vagasService.salvar(this.form.value).subscribe({
@@ -39,5 +59,7 @@ export class VagasFormComponent {
       data: errorMsg
     });
   }
+
+
 
 }
