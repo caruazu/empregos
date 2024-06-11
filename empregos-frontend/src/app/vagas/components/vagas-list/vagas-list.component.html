@@ -1,0 +1,35 @@
+<mat-table [dataSource]="vagas">
+
+  <ng-container matColumnDef="titulo">
+    <mat-header-cell *matHeaderCellDef> Vaga </mat-header-cell>
+    <mat-cell *matCellDef="let v"> {{v.titulo}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tipo">
+    <mat-header-cell *matHeaderCellDef class="coluna-tipo"> Tipo </mat-header-cell>
+    <mat-cell *matCellDef="let v" class="coluna-tipo">
+      <mat-icon aria-hidden="false" aria-label="Tipo de vaga">
+        {{v.tipo | tipo}}
+      </mat-icon>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row
+    *matRowDef="let row; columns: displayedColumns;"
+    (click)="clickedRows.add(row)"
+  />
+
+</mat-table>
+
+<mat-card-actions align="end">
+  <button
+    mat-flat-button
+    color="primary"
+    class="btn-space"
+    (click)="onAdd()"
+  >
+    CRIAR
+  </button>
+</mat-card-actions>

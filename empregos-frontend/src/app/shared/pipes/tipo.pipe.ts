@@ -8,8 +8,7 @@ export class TipoPipe implements PipeTransform {
   transform(value: string): string {
     switch(value) {
       case 'Desenvolvimento': return 'code';
-      case 'Outros': return 'computer';
     }
-    return 'computer';
+    return 'question_mark';
   }
 }

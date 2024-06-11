@@ -1,10 +1,11 @@
-import { VagasService } from './../services/vagas.service';
+import { VagasListComponent } from '../../components/vagas-list/vagas-list.component';
+import { VagasService } from '../../services/vagas.service';
 import { Component } from '@angular/core';
-import { Vaga } from '../model/vagas';
+import { Vaga } from '../../model/vagas';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,8 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './vagas.component.scss'
 })
 export class VagasComponent {
+
   vagas$: Observable<Vaga[]>;
-  displayedColumns = ['titulo','tipo'];
 
   constructor(
       private VagasService: VagasService,
@@ -39,7 +40,8 @@ export class VagasComponent {
     });
   }
 
-  onAdd(){
+  onAdd() {
     this.router.navigate(['new'], { relativeTo: this.route });
   }
+
 }

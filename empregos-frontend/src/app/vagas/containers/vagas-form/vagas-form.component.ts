@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, FormBuilder, NonNullableFormBuilder } from '@angular/forms';
-import { VagasService } from '../services/vagas.service';
+import { NonNullableFormBuilder } from '@angular/forms';
+import { VagasService } from '../../services/vagas.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vagas-form',
@@ -17,26 +18,20 @@ export class VagasFormComponent {
   });
 
   constructor(
+    private router: Router,
     private formBuilder: NonNullableFormBuilder,
     public dialog: MatDialog,
     private vagasService: VagasService
-  ){
-    // this.form
-  }
-
-
+  ){}
 
   onSalvar() {
     this.vagasService.salvar(this.form.value).subscribe({
-      next: (v) => console.log(v),
+      next: (v) => this.router.navigate(['']),
       error: (e) => this.onError('Erro ao salvar a vaga.')
-  })
-
-      // .subscribe(result => console.log(result), error => this.onError('Erro ao salvar a vaga.'));
-  }
+  })}
 
   onCancelar() {
-    throw new Error('Method not implemented.');
+    this.router.navigate([''])
   }
 
   private onError(errorMsg: string) {

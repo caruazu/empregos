@@ -1,0 +1,17 @@
+<div class="colum-flex">
+<mat-card>
+  <mat-toolbar color="secondary">Minhas Vagas</mat-toolbar>
+
+  <app-vagas-list
+    *ngIf="vagas$ | async as vagas; else loading"
+    [vagas]="vagas"
+    (add)="onAdd()"
+  />
+
+  <ng-template #loading >
+    carregando...
+  </ng-template>
+
+</mat-card>
+</div>
+
