@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -34,7 +35,7 @@ public class VagaController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Vaga> findById(@PathVariable Long id) {
 		return vagaRepository.findById(id)
-				.map(vagaApi -> ResponseEntity.ok().body(vagaApi))
+				.map(vagaEncontrada -> ResponseEntity.ok().body(vagaEncontrada))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
@@ -42,5 +43,18 @@ public class VagaController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Vaga create(@RequestBody Vaga vagaApi){
 		return vagaRepository.save(vagaApi);
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<Vaga> update(@PathVariable Long id, @RequestBody Vaga vagaApi) {
+		return vagaRepository.findById(id)
+				.map(vagaEncontrada -> {
+					vagaEncontrada.setTitulo(vagaApi.getTitulo());
+					vagaEncontrada.setTipo(vagaApi.getTipo());
+					
+					Vaga updated = vagaRepository.save(vagaEncontrada);
+					return ResponseEntity.ok().body(updated);
+				})
+				.orElse(ResponseEntity.notFound().build());
 	}
 }

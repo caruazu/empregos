@@ -4,8 +4,6 @@ import { VagasService } from '../../services/vagas.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { map, switchMap } from 'rxjs';
 import { Vaga } from '../../model/vagas';
 
 @Component({
@@ -33,16 +31,13 @@ export class VagasFormComponent {
   ngOnInit(){
     const vagaSelecionada: Vaga = this.route.snapshot.data['vaga'];
 
-
     this.form.setValue({
       _id: vagaSelecionada._id,
       titulo: vagaSelecionada.titulo,
       tipo: vagaSelecionada.tipo,
       descricao: vagaSelecionada.descricao
-      });
-
-    console.log(vagaSelecionada)
-}
+    });
+  }
 
   onSalvar() {
     this.vagasService.salvar(this.form.value).subscribe({
@@ -59,7 +54,4 @@ export class VagasFormComponent {
       data: errorMsg
     });
   }
-
-
-
 }
