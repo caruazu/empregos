@@ -33,7 +33,7 @@ export class VagasComponent {
       );
   }
 
-  onError(errorMsg: string) {
+  private onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
     });

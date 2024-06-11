@@ -4,8 +4,8 @@ import { VagasComponent } from './vagas/vagas.component';
 import { VagasFormComponent } from './vagas-form/vagas-form.component';
 
 const routes: Routes = [
-  {path: '', component: VagasComponent},
-  {path: 'new', component: VagasFormComponent}
+  { path: '', component: VagasComponent},
+  { path: 'new', component: VagasFormComponent}
 ];
 
 @NgModule({

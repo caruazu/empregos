@@ -8,16 +8,20 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Tipo" formControlName="tipo">
+
+        <mat-select formControlName="tipo">
+          <mat-option value="null"></mat-option>
+          <mat-option value="Desenvolvimento">Desenvolvimento</mat-option>
+          <mat-option value="Outro">Outro</mat-option>
+        </mat-select>
       </mat-form-field>
 
     </form>
   </mat-card-content>
+
   <mat-card-actions align="end">
-
-    <button mat-stroked-button>CANCELAR</button>
-    <button mat-flat-button color="primary" class="btn-space">SALVAR</button>
-
+    <button mat-button (click)="onCancelar()">CANCELAR</button>
+    <button mat-flat-button color="primary" class="btn-space" (click)="onSalvar()">SALVAR</button>
   </mat-card-actions>
 
 </mat-card>

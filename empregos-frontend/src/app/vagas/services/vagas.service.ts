@@ -18,4 +18,8 @@ export class VagasService {
       first()
     );
   }
+
+  salvar(vagasForm: Vaga){
+    return this.httpClient.post<Vaga>(this.API_URL, vagasForm);
+  }
 }
