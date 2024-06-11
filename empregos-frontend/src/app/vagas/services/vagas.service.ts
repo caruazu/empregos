@@ -6,6 +6,7 @@ import { delay, first, map, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class VagasService {
 
   private readonly API_URL = 'api/vaga';
@@ -29,10 +30,16 @@ export class VagasService {
   loadByID(_id: string) {
     return this.httpClient.get<Vaga>(`${this.API_URL}/${_id}`);
   }
+
   private create(vagasForm: Partial<Vaga>){
     return this.httpClient.post<Vaga>(this.API_URL, vagasForm);
   }
+
   private update(vagasForm: Partial<Vaga>){
     return this.httpClient.put<Vaga>(`${this.API_URL}/${vagasForm._id}`, vagasForm);
+  }
+
+  delete(vagasForm: Partial<Vaga>){
+    return this.httpClient.delete<Vaga>(`${this.API_URL}/${vagasForm._id}`);
   }
 }

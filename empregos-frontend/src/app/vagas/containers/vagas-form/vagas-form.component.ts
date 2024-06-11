@@ -49,6 +49,13 @@ export class VagasFormComponent {
     this.router.navigate([''])
   }
 
+  onDeletar(){
+    this.vagasService.delete(this.form.value).subscribe({
+      next: (v) => this.router.navigate(['']),
+      error: (e) => this.onError('Erro ao apagar a vaga.')
+    });
+  }
+
   private onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
