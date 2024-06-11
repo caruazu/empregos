@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormControl, FormBuilder, NonNullableFormBuilder } from '@angular/forms';
 import { VagasService } from '../services/vagas.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
@@ -11,25 +11,28 @@ import { ErrorDialogComponent } from '../../shared/components/error-dialog/error
 })
 export class VagasFormComponent {
 
-  form: FormGroup;
+  form = this.formBuilder.group({
+    titulo: [''],
+    tipo: ['']
+  });
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: NonNullableFormBuilder,
     public dialog: MatDialog,
     private vagasService: VagasService
   ){
-    this.form = this.formBuilder.group({
-      titulo: [null],
-      tipo: [null],
-    });
+    // this.form
   }
 
+
+
   onSalvar() {
-    this.vagasService.salvar(this.form.value)
-      .subscribe(
-        result => console.log(result),
-        error => this.onError('Erro ao salvar a vaga.')
-      );
+    this.vagasService.salvar(this.form.value).subscribe({
+      next: (v) => console.log(v),
+      error: (e) => this.onError('Erro ao salvar a vaga.')
+  })
+
+      // .subscribe(result => console.log(result), error => this.onError('Erro ao salvar a vaga.'));
   }
 
   onCancelar() {

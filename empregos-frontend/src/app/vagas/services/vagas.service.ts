@@ -19,7 +19,7 @@ export class VagasService {
     );
   }
 
-  salvar(vagasForm: Vaga){
+  salvar(vagasForm: Partial<Vaga>){
     return this.httpClient.post<Vaga>(this.API_URL, vagasForm);
   }
 }

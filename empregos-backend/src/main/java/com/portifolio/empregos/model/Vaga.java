@@ -21,7 +21,7 @@ public class Vaga {
 	@Column(length = 50, nullable = false)
 	private String tipo;
 	
-	@Column(length = 1000, nullable = false)
+	@Column(length = 1000, nullable = true)
 	private String descricao;
 
 	public Long getId() {
