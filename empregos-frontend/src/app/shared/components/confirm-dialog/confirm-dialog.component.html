@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Tem certeza?</h2>
+<mat-dialog-content>
+  <p>{{mensagem}}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-flat-button
+  color="primary" (click)="onCerteza(false) ">Não</button>
+  <button mat-button (click)="onCerteza(true)">Sim</button>
+</mat-dialog-actions>

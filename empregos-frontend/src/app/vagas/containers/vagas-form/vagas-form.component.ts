@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vaga } from '../../model/vagas';
+import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-vagas-form',
@@ -50,10 +51,20 @@ export class VagasFormComponent {
   }
 
   onDeletar(){
-    this.vagasService.delete(this.form.value).subscribe({
-      next: (v) => this.router.navigate(['']),
-      error: (e) => this.onError('Erro ao apagar a vaga.')
-    });
+
+    const confirmDialog = this.dialog.open(
+      ConfirmDialogComponent,
+      {data: 'Deseja excluir esta vaga?'}
+    )
+
+    confirmDialog.afterClosed().subscribe((confirmacao: boolean) => {
+      if (confirmacao) {
+        this.vagasService.delete(this.form.value).subscribe({
+          next: (v) => this.router.navigate(['']),
+          error: (e) => this.onError('Erro ao apagar a vaga.')
+        });
+      }
+    })
   }
 
   private onError(errorMsg: string) {
