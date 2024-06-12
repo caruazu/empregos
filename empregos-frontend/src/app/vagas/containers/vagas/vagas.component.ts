@@ -1,12 +1,11 @@
-import { VagasListComponent } from '../../components/vagas-list/vagas-list.component';
-import { VagasService } from '../../services/vagas.service';
 import { Component } from '@angular/core';
-import { Vaga } from '../../model/vagas';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
+import { Vaga } from '../../model/vagas';
+import { VagasService } from '../../services/vagas.service';
 
 @Component({
   selector: 'app-vagas',

@@ -1,8 +1,8 @@
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { VagasService } from '../services/vagas.service';
 import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Vaga } from '../model/vagas';
+import { VagasService } from '../services/vagas.service';
 
 @Injectable({
   providedIn: 'root'

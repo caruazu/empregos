@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import { NgModule } from '@angular/core';
 import { AppMaterialModule } from './app-material/app-material.module';
-import { TipoPipe } from './pipes/tipo.pipe';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import { TipoPipe } from './pipes/tipo.pipe';
 
 @NgModule({
   declarations: [
@@ -21,4 +21,5 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     ConfirmDialogComponent
   ]
 })
+
 export class SharedModule { }

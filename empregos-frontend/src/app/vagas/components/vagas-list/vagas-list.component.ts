@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { Vaga } from '../../model/vagas';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vagas-list',

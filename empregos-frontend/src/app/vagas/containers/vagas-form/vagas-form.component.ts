@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NonNullableFormBuilder } from '@angular/forms';
-import { VagasService } from '../../services/vagas.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Vaga } from '../../model/vagas';
 import { ConfirmDialogComponent } from '../../../shared/components/confirm-dialog/confirm-dialog.component';
+import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
+import { Vaga } from '../../model/vagas';
+import { VagasService } from '../../services/vagas.service';
 
 @Component({
   selector: 'app-vagas-form',

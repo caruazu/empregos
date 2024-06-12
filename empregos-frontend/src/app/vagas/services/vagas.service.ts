@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { first } from 'rxjs/operators';
 import { Vaga } from '../model/vagas';
-import { delay, first, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
