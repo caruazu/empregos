@@ -1,29 +1,45 @@
 services:
 
+  postgres:
+    container_name: database
+    image: 'postgres:16-alpine'
+    networks:
+      - empregos-net
+    ports:
+      - '5432:5432'
+    environment:
+      - 'POSTGRES_DB=empregos-db'
+      - 'POSTGRES_USER=admin'
+      - 'POSTGRES_PASSWORD=admin'
+
   backend:
+    container_name: back-end
+    image: empregos/back-end
+    depends_on:
+      - postgres
     build:
       context: ./empregos-backend
       dockerfile: Dockerfile
     networks:
-      - empregos-network
+      - empregos-net
     ports:
-      - "8080:8080"
-
+      - '8080:8080'
 
   frontend:
+    container_name: front-end
+    image: empregos/front-end
+    depends_on:
+      - backend
     build:
       context: ./empregos-frontend
       dockerfile: Dockerfile
     networks:
-      - empregos-network
+      - empregos-net
     ports:
-      - "4200:4200"
+      - '4200:4200'
     environment:
       - API_URL=http://backend:8080
-    depends_on:
-      - backend
-    
 
 networks:
-  empregos-network:
+  empregos-net:
     driver: bridge
