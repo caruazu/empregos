@@ -1,13 +1,29 @@
 services:
-  spring:
+
+  backend:
     build:
       context: ./empregos-backend
       dockerfile: Dockerfile
+    networks:
+      - empregos-network
     ports:
       - "8080:8080"
-  angular:
+
+
+  frontend:
     build:
       context: ./empregos-frontend
       dockerfile: Dockerfile
+    networks:
+      - empregos-network
     ports:
       - "4200:4200"
+    environment:
+      - API_URL=http://backend:8080
+    depends_on:
+      - backend
+    
+
+networks:
+  empregos-network:
+    driver: bridge

@@ -1,11 +1,12 @@
 FROM node:20-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY . /usr/src/app
-
-RUN npm install -g @angular/cli@18
+COPY . .
 
 RUN npm install
+RUN npm install -g @angular/cli@18
 
-CMD ["npm", "run", "start", "--host", "0.0.0.0"]
+EXPOSE 4200
+
+CMD ["ng","serve", "--host", "0.0.0.0", "--proxy-config", "proxy.conf.js"]
