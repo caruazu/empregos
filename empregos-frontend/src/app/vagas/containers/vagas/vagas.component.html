@@ -3,14 +3,24 @@
   <mat-toolbar >Minhas Vagas</mat-toolbar>
 
   <app-vagas-list
-    *ngIf="vagas$ | async as vagas; else loading"
-    [vagas]="vagas"
+  *ngIf="vagas$ | async as vagas; else loading"
+  [vagas]="vagas"
     (add)="onAdd()"
     (edit)="onEdit($event)"
   />
 
   <ng-template #loading >
-    carregando...
+    <mat-card-content>
+      <p>
+        Se esse é seu primeiro acesso do dia, espere 30 segundos e reinicie a página.
+      </p>
+      <p>
+        Esta versão está sendo executada em um servidor protótipo, esse só é ativado quando alguém acessa.
+      </p>
+    </mat-card-content>
+    <div class="carregando">
+      <mat-spinner/>
+    </div>
   </ng-template>
 
 </mat-card>

@@ -5,11 +5,11 @@
 $theme: mat.define-theme(
   (
     color: (
-      theme-type: light,
+      theme-type: dark,
       primary: mat.$azure-palette,
       tertiary: mat.$azure-palette,
     )
   )
 );
 
-:root { @include mat.all-component-themes($theme); }
+:root { @include mat.all-component-themes($theme); background-color: #37474F;}
