@@ -1,14 +1,12 @@
-FROM node:20-alpine
-
+FROM node:20 as builder
 WORKDIR /app
-
 COPY . .
-
 RUN npm install
-RUN npm install -g @angular/cli@18
+RUN npm run build
 
+FROM nginx:alpine
+COPY --from=builder /app/dist/empregos-frontend/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY mime.types /etc/nginx/mime.types
 EXPOSE 4200
-
-ENV API_URL=${API_URL}
-
-CMD ["ng","serve", "--host", "0.0.0.0", "--proxy-config", "proxy.conf.js"]
+CMD ["nginx", "-g", "daemon off;"]

@@ -26,6 +26,7 @@ services:
       - '8080:8080'
     environment:
       - DEV_MODE=${DEV_MODE}
+      - FRONT_END_URL=http://localhost:4200
       - POSTGRES_URL=postgres:5432
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -43,8 +44,6 @@ services:
       - empregos-net
     ports:
       - '4200:4200'
-    environment:
-      - API_URL=http://backend:8080
 
 networks:
   empregos-net:

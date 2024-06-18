@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { Vaga } from '../model/vagas';
+import { environment } from "../../../../environment";
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class VagasService {
-
-  private readonly API_URL = 'api/vaga';
+  private readonly API_URL = `${environment.BACK_END_URL}/api/vaga`;
 
   constructor(private httpClient: HttpClient) { }
 
