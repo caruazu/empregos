@@ -15,6 +15,36 @@ Essa aplicação foi planejada para ser implementada em um servidor local, e pos
 
 ## Instalação
 
+### Dependências
+
+Esta aplicação foi construída com:
+
+- Docker version 24
+- Docker Compose version 2.24
+
+O restante das dependências são gerenciadas automaticamente.
+
+### Configuração
+
+Utilize o arquivo `.env.exemple` como exemplo para suas variáveis locais. Faça sua cópia do arquivo e altere o nome deste para `.env`, ponha os dados de sua implementação.
+
+### Inicialização
+
 ```shell
   docker compose up
 ```
+
+## Implementação
+
+Esse projeto foi disponibilizado via a núvem gratuita da [Render](https://render.com/) e um banco de dados da [Neon](https://neon.tech/). Seu demo está disponível [aqui](https://empregos-dui6.onrender.com).
+
+## Imagens das telas
+
+### Mobile
+
+<table>
+  <tr>
+    <td><img src="screenshots/mobile-home.png" /></td>
+    <td><img src="screenshots/mobile-form.png" /></td>
+  </tr>
+</table>
