@@ -6,9 +6,9 @@ $theme: mat.define-theme(
   (
     color: (
       theme-type: dark,
-      primary: mat.$green-palette,
+      primary: mat.$cyan-palette,
     )
   )
 );
 
-:root { @include mat.all-component-themes($theme); background-color: #004D40;}
+:root { @include mat.all-component-themes($theme); background-color: #263238;}
