@@ -2,7 +2,7 @@ services:
 
   postgres:
     container_name: database
-    image: 'postgres:16-alpine'
+    image: 'postgres:16'
     networks:
       - empregos-net
     ports:
@@ -14,19 +14,16 @@ services:
 
   backend:
     container_name: back-end
-    image: empregos/back-end
+    image: 'caruazu/empregos-backend:0.2'
     depends_on:
       - postgres
-    build:
-      context: ./empregos-backend
-      dockerfile: Dockerfile
     networks:
       - empregos-net
     ports:
       - '8080:8080'
     environment:
       - DEV_MODE=${DEV_MODE}
-      - FRONT_END_URL=http://localhost:4200
+      - FRONT_END_URL=http://192.168.0.111:4200
       - POSTGRES_URL=postgres:5432
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
@@ -34,12 +31,9 @@ services:
 
   frontend:
     container_name: front-end
-    image: empregos/front-end
+    image: 'caruazu/empregos-frontend:0.2'
     depends_on:
       - backend
-    build:
-      context: ./empregos-frontend
-      dockerfile: Dockerfile
     networks:
       - empregos-net
     ports:

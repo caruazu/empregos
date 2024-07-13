@@ -1,5 +1,5 @@
 # compilando a aplicação
-FROM maven:3-eclipse-temurin-17-alpine AS build
+FROM maven:3-eclipse-temurin-22 AS build
 
 WORKDIR /app
 COPY pom.xml .
@@ -8,7 +8,7 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 # inicializano a aplicação
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:22-jdk
 
 VOLUME /tmp
 COPY --from=build /app/target/*.jar app.jar
