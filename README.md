@@ -48,3 +48,16 @@ Utilize o arquivo `.env.exemple` como exemplo para suas variáveis locais. Faça
     <td><img src="screenshots/mobile-form.png" /></td>
   </tr>
 </table>
+
+## TODO:
+
+- criar autenticação da api
+- Paginação 
+- Remoção lógica 
+- Validação dos dados
+- Tranformar string em enum
+- Tratamento de excessões (a api retorna um objeto ao invés de um 404)
+- DTO 
+- UUID
+- desativar botão de delete quando criar uma vaga
+- O banco esta reiniciando
