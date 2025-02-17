@@ -1,7 +1,7 @@
 # Empregos
 
 ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![typescript](https://img.shields.io/badge/typescript-D4FAFF?style=for-the-badge&logo=typescript)
 ![Spring Boot](https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logoColor=white&logo=spring)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -36,7 +36,7 @@ Utilize o arquivo `.env.exemple` como exemplo para suas variáveis locais. Faça
 
 ## Implementação
 
-Esse projeto foi disponibilizado via a núvem gratuita da [Render](https://render.com/) e um banco de dados da [Neon](https://neon.tech/). Seu demo está disponível [aqui](https://empregos-dui6.onrender.com).
+~~Esse projeto foi disponibilizado via a núvem gratuita da [Render](https://render.com/) e um banco de dados da [Neon](https://neon.tech/). Seu demo está disponível [aqui](https://empregos-dui6.onrender.com).~~
 
 ## Imagens das telas
 
