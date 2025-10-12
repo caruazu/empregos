@@ -33,8 +33,9 @@ public class VagaController {
 	}
 	
 	@GetMapping
-	public List<Vaga> list(){
-		return vagaRepository.findAll();
+	public ResponseEntity<List<Vaga>> list(){
+		List<Vaga> vagas = vagaRepository.findAll();
+		return ResponseEntity.ok(vagas);
 	}
 	
 	@GetMapping("/{id}")
@@ -56,7 +57,7 @@ public class VagaController {
 				.map(vagaEncontrada -> {
 					vagaEncontrada.setTitulo(vagaApi.getTitulo());
 					vagaEncontrada.setTipo(vagaApi.getTipo());
-					
+					vagaEncontrada.setDescricao(vagaApi.getDescricao());
 					Vaga updated = vagaRepository.save(vagaEncontrada);
 					return ResponseEntity.ok().body(updated);
 				})
